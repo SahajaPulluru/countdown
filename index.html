@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Countdown timer</title>
+  <style>
+    body{
+      background-color: pink;
+    }
+    p{
+      font-size: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="button" style="text-align: center;">
+  <form name="myForm">
+    <input type="button" value="Start counting" onclick="startCounting( )"/ >
+  </form>
+  <p id="displayTime"></p>
+    </div>
+<script>
+  var timer;
+  var counter = 10;
+
+  function startCounting() {
+    timer = window.setTimeout("countDown()", 1000);
+    document.getElementById("displayTime").innerHTML = counter;
+  }
+
+  function countDown() {
+    counter = counter - 1;
+    document.getElementById("displayTime").innerHTML = counter;
+    if (counter == 0) {
+      window.clearTimeout(timer);
+      timer = null;
+        document.getElementById("displayTime").innerHTML = "Happy Birthday!";
+    } else {
+      timer = window.setTimeout("countDown()", 1000);
+    }
+  }
+</script>
+</body>
+
+</html>
